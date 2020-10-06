@@ -1,0 +1,12 @@
+01.  Extract the data and label_mask folders. The 'label_mask' folder has json for each image.
+02.  Open conda prompt and activate the environment with labelme(maskrcnn_tf in my case).
+03.  Run command : python labelme2coco.py label_mask --o training.json
+     The code 'labelme2coco.py' converts all the image jsons into a single json file. This is the same as the conversion of all json to a single tfrecord in case of tf maskrcnn.
+03.  Open the 'Detectron2_Session.ipynb' notebook in Colab in a GPU runtime.
+04.  'Upload to session storage' the 'data.zip' from local. This zip file should have all the training images in 'images' sub-folder and the single combined json that was created for these images.
+05.  The same json will be used in the colab notebook to train the model.
+
+Please note, 'labelme2coco.py' was specific to 'labelme' application and 'coco' dataset. The notebook will be importing register_coco_instances'. If using any other dataset format, the change should be made everywhere.
+
+The 'Detectron2_Session_colab.ipynb' notebook was downloaded after colab model training and testing.
+Model trained was 350MB hence wasn't downloaded for GitHub repo.
